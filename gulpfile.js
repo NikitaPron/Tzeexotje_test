@@ -67,7 +67,7 @@ function serve() {
     watch('src/**/*.*', series(clear, html, javascript, css, images)).on('change', sync.reload)
   }
 
- exports.default = series(clear, html, javascript, css);
+ exports.default = series(clear, html, javascript, css, images);
  exports.serve = series(clear, html, css, javascript, images, serve);
- exports.build = series(clear, html, javascript, css);
+ exports.build = series(clear, html, javascript, css, images);
 

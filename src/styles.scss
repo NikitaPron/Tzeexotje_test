@@ -113,15 +113,34 @@ header {
 
     &__open {
         display: none;
-        width: 40px;
-        height: 40px;
+        cursor: pointer;
         position: absolute;
         top: 15px;
         right: 15px;
+        
+        & div {
+            width: 35px;
+            height: 5px;
+            background-color: white;
+            margin: 6px 0;
+            transition: 0.4s;
+        }
+
+        & :nth-child(1).cross {
+            transform: rotate(-45deg) translate(-9px, 6px) ;
+        }
+
+        & :nth-child(2).cross {
+            opacity: 0;
+        }
+
+        & :nth-child(3).cross {
+            transform: rotate(45deg) translate(-8px, -8px) ;
+        }
 
         @media screen and (max-width: 500px) {
-            display: block;
-            z-index: 9999;
+            display: inline-block;
+            z-index: 1001;
         }
     }
 
@@ -292,6 +311,11 @@ header {
 
         & :nth-child(2) {
             align-self: flex-end;
+
+            &:hover {
+                z-index: 1000;
+                transform: translateX(50%) scale(200%);
+            }
         }
 
     }
@@ -427,6 +451,7 @@ header {
 
 // modal-form
 .modal {
+    z-index: 9999;
     position: fixed;
     width: 100%;
     height: 100%;
@@ -491,6 +516,10 @@ header {
         max-height: 80vh;
     }
 
+    @media screen and (max-height: 750px) {
+        margin-top: 50px;
+    }
+
     &__inp-wrap {
         display: flex;
         flex-direction: column;
@@ -528,7 +557,7 @@ header {
     textarea {
         transition: none;
         min-height: 125px;
-        max-height: 400px;
+        max-height: 300px;
         resize: vertical;
     }
 
